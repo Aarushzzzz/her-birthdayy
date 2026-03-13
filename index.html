@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday Navyaa 🎂</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(140deg,#ff8fb1,#ff6f91,#ff9eb5,#ffb3c7);
+  background-size:300% 300%;
+  animation:bgMove 12s ease infinite;
+  padding:20px;
+  overflow:hidden;
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* glowing floating hearts */
+.heart{
+  position:fixed;
+  font-size:14px;
+  opacity:0.5;
+  animation:float 12s linear infinite;
+}
+
+@keyframes float{
+  from{transform:translateY(100vh) scale(.6)}
+  to{transform:translateY(-10vh) scale(1.2)}
+}
+
+/* stars */
+.star{
+  position:fixed;
+  width:3px;
+  height:3px;
+  background:white;
+  border-radius:50%;
+  opacity:0.9;
+  animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+  from{opacity:.3; transform:scale(1)}
+  to{opacity:1; transform:scale(1.7)}
+}
+
+.container{
+  text-align:center;
+  width:100%;
+  max-width:420px;
+  position:relative;
+  z-index:2;
+}
+
+h1{
+  position:absolute;
+  top:-70px;
+  left:0;
+  width:100%;
+  color:white;
+  font-weight:600;
+  letter-spacing:3px;
+  margin:0;
+  font-size:clamp(26px,6vw,34px);
+  text-align:center;
+  text-shadow:0 6px 18px rgba(0,0,0,.35);
+}
+
+.cake{
+  z-index:1;
+  position:relative;
+  width:100%;
+  max-width:320px;
+  margin:auto;
+  filter:drop-shadow(0 12px 25px rgba(0,0,0,.25));
+}
+
+.layer{
+  width:100%;
+  height:70px;
+  border-radius:18px;
+  box-shadow:0 10px 20px rgba(0,0,0,.15);
+  margin-top:8px;
+}
+
+.layer1{background:linear-gradient(#ffffff,#ffe4ec)}
+.layer2{background:linear-gradient(#ffd6e4,#ffc2d1)}
+.layer3{background:linear-gradient(#ffc2d1,#ff9eb5)}
+
+/* icing */
+.icingTop{
+  width:100%;
+  height:30px;
+  background:linear-gradient(#ffd1dc,#ffb3c7);
+  border-radius:22px 22px 0 0;
+  position:absolute;
+  top:-20px;
+  overflow:hidden;
+}
+
+.drip{
+  position:absolute;
+  width:8px;
+  height:24px;
+  background:#ffb3c7;
+  border-radius:12px;
+  top:20px;
+  animation:drip 3s infinite ease-in-out;
+}
+
+@keyframes drip{
+  0%{transform:scaleY(.6)}
+  50%{transform:scaleY(1.2)}
+  100%{transform:scaleY(.6)}
+}
+
+.candles{
+  position:absolute;
+  top:-75px;
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  row-gap:10px;
+  padding:0 10px;
+  z-index:5;
+}
+
+.candle{
+  width:8px;
+  height:38px;
+  background:white;
+  border-radius:3px;
+  position:relative;
+  margin:auto;
+  cursor:pointer;
+  box-shadow:0 0 6px rgba(255,255,255,.8);
+}
+
+.flame{
+  width:10px;
+  height:18px;
+  background:radial-gradient(circle,#fff176,#ff9800);
+  border-radius:50%;
+  position:absolute;
+  top:-18px;
+  left:-1px;
+  box-shadow:0 0 14px orange;
+  animation:flicker .5s infinite alternate;
+}
+
+.smoke{
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:rgba(200,200,200,0.7);
+  border-radius:50%;
+  top:-20px;
+  left:1px;
+  animation:smokeUp 2s ease forwards;
+}
+
+@keyframes smokeUp{
+  0%{opacity:0.8; transform:translateY(0) scale(1)}
+  100%{opacity:0; transform:translateY(-40px) scale(2)}
+}
+
+@keyframes flicker{
+  from{transform:scale(1)}
+  to{transform:scale(1.25)}
+}
+  to{transform:scale(1.25)}
+}
+
+.hint{
+  color:white;
+  margin-top:22px;
+  font-size:15px;
+  opacity:.95;
+  text-shadow:0 2px 6px rgba(0,0,0,.3);
+}
+
+#message{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  color:white;
+  font-style:italic;
+  font-size:clamp(8px,4.5vw,22px);
+  width:90%;
+  max-width:650px;
+  line-height:1.8;
+  text-align:center;
+  display:none;
+  animation:fadeIn 2s ease forwards;
+  text-shadow:0 4px 12px rgba(0,0,0,.35);
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translate(-50%,-40%)}
+  to{opacity:1; transform:translate(-50%,-50%)}
+}
+
+.confetti{
+  position:fixed;
+  width:12px;
+  height:12px;
+  top:-10px;
+  opacity:.9;
+  animation:fall linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(1080deg);
+    opacity:1;
+  }
+}
+
+
+#wishText{
+  position:absolute;
+  top:-40px;
+  width:100%;
+  text-align:center;
+  font-size:22px;
+  font-weight:700;
+  color:white;
+  text-shadow:0 0 12px rgba(255,255,255,0.9),0 0 24px rgba(255,255,255,0.7);
+  letter-spacing:2px;
+}
+
+.candle{
+  width:10px;
+  height:35px;
+  background:linear-gradient(#ffffff,#ffd1dc);
+  border-radius:3px;
+  position:relative;
+  margin:4px;
+  display:inline-block;
+}
+
+.flame{
+  width:10px;
+  height:14px;
+  background:radial-gradient(circle,#fff6b3,#ff9a00);
+  border-radius:50%;
+  position:absolute;
+  top:-14px;
+  left:0;
+  animation:flicker 0.6s infinite alternate;
+}
+
+@keyframes flicker{
+  from{transform:scale(1);opacity:0.9}
+  to{transform:scale(1.15);opacity:1}
+}
+
+
+
+  50%{filter:drop-shadow(0 0 35px rgba(255,255,255,0.9))}
+  100%{filter:drop-shadow(0 0 20px rgba(255,255,255,0.6))}
+}
+
+</style>
+</head>
+<body>
+
+<div class="container" id="cakeArea">
+
+<h1>✨ Make a Wish ✨</h1>
+
+<div class="cake">
+
+<div class="candles" id="candles"></div>
+
+<div class="icingTop">
+<div class="drip" style="left:30px"></div>
+<div class="drip" style="left:80px"></div>
+<div class="drip" style="left:140px"></div>
+<div class="drip" style="left:200px"></div>
+<div class="drip" style="left:260px"></div>
+</div>
+
+<div class="layer layer1"></div>
+<div class="layer layer2"></div>
+<div class="layer layer3"></div>
+
+</div>
+
+<p class="hint">Tap the candles to blow them out 🎂</p>
+
+</div>
+
+<div id="message">
+<div style="font-size:42px;margin-bottom:18px;">🐼🐼 &nbsp;🌸🌸🌸 &nbsp;💐 &nbsp;💎</div>
+
+<h1 style="font-weight:700;letter-spacing:2px;">HAPPY BIRTHDAY NAVYAA</h1><br>
+
+I hope you have the most amazing birthday and a year full of happiness ahead of you. You honestly deserve all the good things that come your way ofc with me.You're one of the most genuine and kind people I know but not more thannn meee. The way you stay calmm, don’t get upset over chotuu things, and never expect too much from others really shows your kindness but ofc a little less than mee .Talking to you always feels easy and i can be myself. Whenever something funny or interesting happens, i am always eager to share it with you.You will alwayss be speciall forr mee andd alsoo
+You’re someone I can share things with freely without overthinking, and that really means a lot to me and i hope you also feel the same way.
+
+</div>
+
+<script>
+
+/* stars */
+for(let i=0;i<70;i++){
+  const star=document.createElement('div');
+  star.className='star';
+  star.style.left=Math.random()*100+'vw';
+  star.style.top=Math.random()*100+'vh';
+  star.style.animationDuration=(Math.random()*2+1)+'s';
+  document.body.appendChild(star);
+}
+
+/* floating hearts */
+for(let i=0;i<15;i++){
+  const heart=document.createElement('div');
+  heart.className='heart';
+  heart.innerHTML='❤';
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.animationDuration=(Math.random()*8+6)+'s';
+  document.body.appendChild(heart);
+}
+
+const candlesContainer = document.getElementById('candles');
+let blown = 0;
+
+let candles=[];
+
+for(let i=0;i<8;i++){
+
+  const candle=document.createElement('div');
+  candle.className='candle';
+
+  const flame=document.createElement('div');
+  flame.className='flame';
+
+  candle.appendChild(flame);
+  candles.push({candle,flame});
+
+  candlesContainer.appendChild(candle);
+}
+
+/* one tap blows all candles */
+candlesContainer.addEventListener('click',()=>{
+
+  candles.forEach(c=>{
+    if(c.flame.style.display!=='none'){
+      c.flame.style.display='none';
+
+      const smoke=document.createElement('div');
+      smoke.className='smoke';
+      c.candle.appendChild(smoke);
+
+      setTimeout(()=>smoke.remove(),2000);
+    }
+  });
+
+  launchConfetti();
+
+  setTimeout(()=>{
+    document.getElementById('cakeArea').style.display='none';
+    typeMessage();
+  },2000);
+});
+
+function launchConfetti(){
+  for(let i=0;i<280;i++){
+
+    const conf=document.createElement('div');
+    conf.className='confetti';
+
+    const colors=['#ffffff','#ffd1dc','#ffe066','#ff6f91','#ffccff','#fffacd','#ffc0cb'];
+    conf.style.background=colors[Math.floor(Math.random()*colors.length)];
+
+    conf.style.left=Math.random()*100+'vw';
+    conf.style.animationDuration=(Math.random()*3+2)+'s';
+
+    document.body.appendChild(conf);
+
+    setTimeout(()=>conf.remove(),6000);
+  }
+}
+
+
+function typeMessage(){
+  const el=document.getElementById('message');
+  const full=el.innerHTML;
+
+  const parts=full.split('<br>');
+  const title=parts[0];
+  const body=parts.slice(1).join('<br>');
+
+  el.innerHTML=title+'<br>';
+  el.style.display='block';
+
+  let i=0;
+
+  function type(){
+    if(i<body.length){
+      el.innerHTML=title+'<br>'+body.substring(0,i);
+      i++;
+      setTimeout(type,35);
+    }else{
+      el.innerHTML=title+'<br>'+body;
+    }
+  }
+
+  type();
+}
+
+
+// Ensure 8 candles exist
+window.addEventListener('load',()=>{
+  const holder=document.getElementById('candles');
+  if(holder && holder.children.length===0){
+    for(let i=0;i<8;i++){
+      const c=document.createElement('div');
+      c.className='candle';
+      const f=document.createElement('div');
+      f.className='flame';
+      c.appendChild(f);
+
+      c.addEventListener('click',()=>{
+        if(f.style.display!=='none'){
+          f.style.display='none';
+          blown++;
+          if(blown===8){
+            launchConfetti();
+            setTimeout(()=>{
+              typeMessage();
+            },1200);
+          }
+        }
+      });
+
+      holder.appendChild(c);
+    }
+  }
+});
+
+</script>
+
+</body>
+</html>
